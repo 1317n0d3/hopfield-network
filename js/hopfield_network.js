@@ -83,7 +83,7 @@ class Network {
     this.images = images;
 
     this.w = this.x[0].map((line) => this.x[0].map((value) => 0));
-    this.deference = 600;
+    this.deference = 400;
 
     this.x.forEach((example, index) => {
       example.forEach((value, indexValue) => {
@@ -178,6 +178,7 @@ class Canvas {
     let draw = false,
       context = this.context;
     context.strokeStyle = "#000";
+    // context.lineWidth = 0.1;
     context.lineWidth = 4;
     this.obj.addEventListener("mousedown", function (e) {
       let x = e.pageX - this.offsetLeft,
@@ -215,7 +216,9 @@ class Canvas {
     this.context.fillRect(0, 0, this.width, this.height);
   }
 }
+
 let input = new Input(35, "images/png/numbers", "png", 1);
+
 window.onload = () => {
   input.load();
   network = new Network(input.pixels, input.images);
