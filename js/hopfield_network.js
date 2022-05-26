@@ -84,6 +84,7 @@ class Network {
 
     this.w = this.x[0].map((line) => this.x[0].map((value) => 0));
     this.deference = 400;
+    // this.deference = 0;
 
     this.x.forEach((example, index) => {
       example.forEach((value, indexValue) => {
@@ -130,9 +131,10 @@ class Network {
     }
     return result;
   }
+
   result(y) {
     let i = 0;
-    while (this.in(y) < 0 && i < 5) {
+    while (this.in(y) < 0 && i < 10) {
       i++;
       y = y.map((value, index) => {
         let y1 = 0;
@@ -145,6 +147,7 @@ class Network {
     }
     return this.in(y);
   }
+
   showResult(canv, imageNumber, iDontKnowImage) {
     canv.drawImage(
       imageNumber > -1 ? this.images[imageNumber] : iDontKnowImage,
@@ -217,7 +220,7 @@ class Canvas {
   }
 }
 
-let input = new Input(35, "images/png/numbers", "png", 1);
+let input = new Input(34, "images/png/numbers", "png", 1);
 
 window.onload = () => {
   input.load();
